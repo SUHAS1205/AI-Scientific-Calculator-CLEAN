@@ -1,0 +1,10 @@
+# Environment & secrets
+*.env
+instance/secrets.env
+
+# Python
+_pycache_/
+*.pyc
+
+# VS Code
+.vscode/

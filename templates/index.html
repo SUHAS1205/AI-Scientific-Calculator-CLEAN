@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcAI - Voice Powered Science</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        page: {
+                            50: '#ffffff',  
+                            100: '#f0fdf4', 
+                            800: '#1f2937', 
+                            600: '#4b5563', 
+                        },
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669', 
+                            700: '#047857',
+                            900: '#064e3b', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-page-50 text-page-600 font-sans antialiased">
+    
+    <!-- Navigation -->
+
+{% include 'nav.html' %}
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-b from-white via-brand-50 to-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
+            
+            <div class="lg:w-1/2 text-center lg:text-left z-10">
+                <div class="inline-flex items-center bg-brand-100 text-brand-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-brand-200">
+                    <span class="w-2 h-2 bg-brand-500 rounded-full mr-2 animate-pulse"></span>
+                    <i class="fas fa-rocket mr-2"></i> v2.0 Now Available
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold text-page-800 mb-6 leading-tight">
+                    Math at the Speed of <br/>
+                    <span class="text-brand-600">Your Voice</span>
+                </h1>
+                
+                <p class="text-xl text-page-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    A next-generation academic tool that converts natural language into complex scientific calculations using Python & AI.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                    <a href="/calculator" class="bg-brand-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-brand-700 transition shadow-xl hover:shadow-2xl flex items-center justify-center group">
+                        <i class="fas fa-microphone-alt mr-3 group-hover:animate-pulse"></i> Try Voice Mode
+                    </a>
+                    <a href="#technology" class="bg-white text-page-800 px-8 py-4 rounded-full text-lg font-bold border border-gray-200 hover:border-brand-400 hover:text-brand-600 transition flex items-center justify-center">
+                        <i class="fas fa-play-circle mr-2"></i> How it Works
+                    </a>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-4 mt-12 max-w-md mx-auto lg:mx-0">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-600">10K+</div>
+                        <div class="text-sm text-page-600">Users</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-600">500K+</div>
+                        <div class="text-sm text-page-600">Calculations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-brand-600">99.9%</div>
+                        <div class="text-sm text-page-600">Accuracy</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 mt-16 lg:mt-0 relative">
+                <div class="absolute inset-0 bg-brand-400 rounded-full filter blur-[100px] opacity-20 pulse-slow"></div>
+                <img src="../static/img/hero.png" 
+                     alt="App Interface" 
+                     class="relative rounded-2xl shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition duration-500 float-animation">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-star text-brand-500 mr-3"></i>Powerful Features
+                </h2>
+                <p class="text-lg text-page-600 max-w-2xl mx-auto">Everything you need for advanced mathematical computations in one intelligent platform</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-microphone text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Voice Recognition</h3>
+                    <p class="text-page-600">Speak naturally and watch your equations come to life. Supports complex mathematical terminology.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">AI-Powered</h3>
+                    <p class="text-page-600">Advanced AI interprets your intent and solves equations with human-like understanding.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Visual Graphing</h3>
+                    <p class="text-page-600">Plot 2D and 3D functions instantly. Transform data into beautiful visualizations.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-history text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Smart History</h3>
+                    <p class="text-page-600">Never lose a calculation. All inputs are automatically saved with intelligent search.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-bolt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Lightning Fast</h3>
+                    <p class="text-page-600">Instant results powered by optimized algorithms. Process thousands of calculations per second.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="group bg-gradient-to-br from-brand-50 to-white p-8 rounded-2xl border border-brand-100 hover:border-brand-400 hover:shadow-xl transition duration-300">
+                    <div class="bg-brand-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 shadow-lg">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Secure & Private</h3>
+                    <p class="text-page-600">Bank-level encryption protects your data. Your calculations remain completely confidential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-code text-brand-500 mr-3"></i>Powered by Modern Tech
+                </h2>
+                <p class="text-lg text-page-600">Built with a robust stack designed for speed, accuracy, and reliability</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fab fa-python text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">Python Backend</h3>
+                    <p class="text-sm text-page-600 mt-2">Flask & SymPy logic</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fas fa-brain text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">OpenAI GPT</h3>
+                    <p class="text-sm text-page-600 mt-2">Natural Language Processing</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fas fa-wave-square text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">Web Speech API</h3>
+                    <p class="text-sm text-page-600 mt-2">Real-time voice recognition</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fab fa-css3-alt text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">Tailwind CSS</h3>
+                    <p class="text-sm text-page-600 mt-2">Responsive modern UI</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fas fa-database text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">MySQL</h3>
+                    <p class="text-sm text-page-600 mt-2">Reliable data storage</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fab fa-js text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">JavaScript</h3>
+                    <p class="text-sm text-page-600 mt-2">Dynamic interactions</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fas fa-lock text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">Security</h3>
+                    <p class="text-sm text-page-600 mt-2">Werkzeug encryption</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl hover:bg-brand-50 transition border border-gray-100 hover:border-brand-200 group text-center">
+                    <i class="fas fa-cloud text-5xl text-gray-400 group-hover:text-brand-500 mb-4 transition"></i>
+                    <h3 class="font-bold text-lg text-page-800">Cloud Ready</h3>
+                    <p class="text-sm text-page-600 mt-2">Deploy anywhere</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-cogs text-brand-500 mr-3"></i>How It Works
+                </h2>
+                <p class="text-lg text-page-600 max-w-2xl mx-auto">Three simple steps to unlock the power of AI-driven calculations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="relative inline-block mb-8">
+                        <div class="w-32 h-32 bg-gradient-to-br from-brand-400 to-brand-600 rounded-full flex items-center justify-center float-animation shadow-2xl">
+                            <span class="text-5xl font-bold text-white">1</span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse">
+                            <i class="fas fa-microphone text-yellow-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-page-800 mb-4">Speak or Type</h3>
+                    <p class="text-page-600 leading-relaxed">
+                        Simply speak your equation naturally or type it in. Our AI understands mathematical terms like "cosine", "integral", and "factorial".
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="relative inline-block mb-8">
+                        <div class="w-32 h-32 bg-gradient-to-br from-brand-500 to-brand-700 rounded-full flex items-center justify-center float-animation shadow-2xl" style="animation-delay: 2s">
+                            <span class="text-5xl font-bold text-white">2</span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center animate-pulse">
+                            <i class="fas fa-brain text-blue-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-page-800 mb-4">AI Processing</h3>
+                    <p class="text-page-600 leading-relaxed">
+                        Our advanced AI engine interprets your input, understands the context, and processes complex mathematical operations instantly.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="relative inline-block mb-8">
+                        <div class="w-32 h-32 bg-gradient-to-br from-brand-600 to-brand-800 rounded-full flex items-center justify-center float-animation shadow-2xl" style="animation-delay: 4s">
+                            <span class="text-5xl font-bold text-white">3</span>
+                        </div>
+                        <div class="absolute -top-2 -right-2 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center animate-pulse">
+                            <i class="fas fa-check text-green-900 text-xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-page-800 mb-4">Get Results</h3>
+                    <p class="text-page-600 leading-relaxed">
+                        Receive instant, accurate solutions with step-by-step explanations. Results are saved to your history automatically.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Accessibility Section -->
+    <section id="accessibility" class="py-20 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="../static/img/calculator.png" 
+                         alt="Student using voice" 
+                         class="rounded-2xl shadow-2xl border-4 border-white">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="inline-block bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                        <i class="fas fa-universal-access mr-2"></i> Inclusive Design
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-6">
+                        Designed for Everyone
+                    </h2>
+                    <p class="text-lg text-page-600 mb-6 leading-relaxed">
+                        Traditional calculators can be difficult for users with visual impairments or motor disabilities. 
+                        CalcAI bridges this gap by allowing complete control through voice commands.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-brand-500 flex items-center justify-center mt-1">
+                                <i class="fas fa-hands-helping text-white text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-page-800">Hands-Free Operation</p>
+                                <p class="text-page-600">Perfect for multitasking students and professionals who need to keep their hands free.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-brand-500 flex items-center justify-center mt-1">
+                                <i class="fas fa-eye text-white text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-page-800">Screen-Reader Friendly</p>
+                                <p class="text-page-600">Fully accessible interface compatible with all major screen reading software.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-brand-500 flex items-center justify-center mt-1">
+                                <i class="fas fa-volume-up text-white text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-page-800">Audio Feedback</p>
+                                <p class="text-page-600">Instant auditory feedback with Text-to-Speech for all calculations and results.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-8 w-8 rounded-full bg-brand-500 flex items-center justify-center mt-1">
+                                <i class="fas fa-text-height text-white text-sm"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-page-800">Customizable Display</p>
+                                <p class="text-page-600">Adjust font sizes, contrast, and color schemes to match your preferences.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="/calculator" class="inline-flex items-center bg-brand-600 text-white px-6 py-3 rounded-full font-bold hover:bg-brand-700 transition shadow-lg">
+                        <i class="fas fa-wheelchair mr-2"></i> Try Accessible Mode
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Showcase -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-infinity text-brand-500 mr-3"></i>More Than Just Addition
+                </h2>
+                <p class="text-lg text-page-600">A complete scientific suite right in your browser</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Capability 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden relative flex items-center justify-center">
+                        <i class="fas fa-chart-area text-8xl text-blue-300"></i>
+                        <div class="absolute bottom-4 left-4 bg-white p-3 rounded-xl shadow-lg">
+                            <i class="fas fa-chart-line text-brand-500 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-page-800 mb-3">Visual Graphing</h3>
+                        <p class="text-page-600 mb-4">Plot 2D and 3D functions instantly. Just say "Plot sine of x" and watch the magic happen.</p>
+                        <ul class="text-sm text-page-600 space-y-2">
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Real-time function plotting</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Multiple graphs simultaneously</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Export as high-res images</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-50 overflow-hidden relative flex items-center justify-center">
+                        <i class="fas fa-clock-rotate-left text-8xl text-green-300"></i>
+                        <div class="absolute bottom-4 left-4 bg-white p-3 rounded-xl shadow-lg">
+                            <i class="fas fa-history text-brand-500 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-page-800 mb-3">Smart History</h3>
+                        <p class="text-page-600 mb-4">Never lose a calculation. All inputs are saved to your personal database with intelligent search.</p>
+                        <ul class="text-sm text-page-600 space-y-2">
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Unlimited storage</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Search by date or keyword</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Export to PDF/Excel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capability 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-50 overflow-hidden relative flex items-center justify-center">
+                        <i class="fas fa-square-root-alt text-8xl text-purple-300"></i>
+                        <div class="absolute bottom-4 left-4 bg-white p-3 rounded-xl shadow-lg">
+                            <i class="fas fa-calculator text-brand-500 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-page-800 mb-3">Advanced Calculus</h3>
+                        <p class="text-page-600 mb-4">Derivatives, Integrals, and Logarithms supported via powerful SymPy logic engine.</p>
+                        <ul class="text-sm text-page-600 space-y-2">
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Symbolic mathematics</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>Step-by-step solutions</li>
+                            <li><i class="fas fa-check-circle text-brand-500 mr-2"></i>LaTeX output support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Capabilities -->
+            <div class="grid md:grid-cols-4 gap-6 mt-12">
+                <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-brand-50 transition border border-gray-100">
+                    <i class="fas fa-square text-3xl text-brand-500 mb-3"></i>
+                    <h4 class="font-bold text-page-800 mb-2">Matrix Operations</h4>
+                    <p class="text-sm text-page-600">Multiply, transpose, and find determinants</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-brand-50 transition border border-gray-100">
+                    <i class="fas fa-percentage text-3xl text-brand-500 mb-3"></i>
+                    <h4 class="font-bold text-page-800 mb-2">Statistics</h4>
+                    <p class="text-sm text-page-600">Mean, median, standard deviation</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-brand-50 transition border border-gray-100">
+                    <i class="fas fa-pi text-3xl text-brand-500 mb-3"></i>
+                    <h4 class="font-bold text-page-800 mb-2">Trigonometry</h4>
+                    <p class="text-sm text-page-600">Sin, cos, tan in degrees or radians</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-brand-50 transition border border-gray-100">
+                    <i class="fas fa-superscript text-3xl text-brand-500 mb-3"></i>
+                    <h4 class="font-bold text-page-800 mb-2">Exponents</h4>
+                    <p class="text-sm text-page-600">Powers, roots, and logarithms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-users text-brand-500 mr-3"></i>Who Uses CalcAI?
+                </h2>
+                <p class="text-lg text-page-600">Trusted by learners and professionals across diverse fields</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Use Case 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition text-center border border-gray-100">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-graduate text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Students</h3>
+                    <p class="text-page-600">Solve homework problems faster with voice input and detailed step-by-step solutions.</p>
+                </div>
+
+                <!-- Use Case 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition text-center border border-gray-100">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chalkboard-teacher text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Educators</h3>
+                    <p class="text-page-600">Create interactive lessons and demonstrate complex concepts with visual graphs.</p>
+                </div>
+
+                <!-- Use Case 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition text-center border border-gray-100">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hard-hat text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Engineers</h3>
+                    <p class="text-page-600">Perform quick calculations on-site with hands-free voice commands for efficiency.</p>
+                </div>
+
+                <!-- Use Case 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition text-center border border-gray-100">
+                    <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-flask text-yellow-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-page-800 mb-3">Researchers</h3>
+                    <p class="text-page-600">Analyze data and generate statistical insights with powerful computation tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-quote-left text-brand-500 mr-3"></i>Trusted by Students
+                </h2>
+                <p class="text-lg text-page-600">See what our users have to say about their experience</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-brand-500 hover:shadow-xl transition">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Alex" class="w-16 h-16 rounded-full mr-4 border-2 border-brand-500">
+                        <div>
+                            <h4 class="font-bold text-page-800">Alex Rodriguez</h4>
+                            <p class="text-sm text-page-600"><i class="fas fa-graduation-cap mr-1"></i>Engineering Student</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-page-600 italic">"The voice recognition is surprisingly accurate for scientific terms like 'cosine' and 'factorial'. Helps me speed through homework assignments!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-brand-500 hover:shadow-xl transition">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=45" alt="Priya" class="w-16 h-16 rounded-full mr-4 border-2 border-brand-500">
+                        <div>
+                            <h4 class="font-bold text-page-800">Priya Mehta</h4>
+                            <p class="text-sm text-page-600"><i class="fas fa-laptop-code mr-1"></i>CS Major</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-page-600 italic">"I built something similar for my final project, but this implementation is much smoother. The UI is clean and very responsive."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-brand-500 hover:shadow-xl transition">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=33" alt="Marcus" class="w-16 h-16 rounded-full mr-4 border-2 border-brand-500">
+                        <div>
+                            <h4 class="font-bold text-page-800">Marcus Chen</h4>
+                            <p class="text-sm text-page-600"><i class="fas fa-atom mr-1"></i>Physics Student</p>
+                        </div>
+                    </div>
+                    <div class="flex text-brand-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-page-600 italic">"The graphing feature is fantastic! Being able to visualize complex equations helps me understand physics concepts so much better."</p>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 bg-gradient-to-r from-brand-500 to-brand-700 rounded-2xl p-8 text-white">
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2"><i class="fas fa-users mr-2"></i>10,000+</div>
+                    <div class="text-brand-100">Active Users</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2"><i class="fas fa-calculator mr-2"></i>500K+</div>
+                    <div class="text-brand-100">Calculations</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2"><i class="fas fa-star mr-2"></i>4.9/5</div>
+                    <div class="text-brand-100">User Rating</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold mb-2"><i class="fas fa-globe mr-2"></i>50+</div>
+                    <div class="text-brand-100">Countries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-page-800 mb-4">
+                    <i class="fas fa-question-circle text-brand-500 mr-3"></i>Frequently Asked Questions
+                </h2>
+                <p class="text-lg text-page-600">Everything you need to know about CalcAI</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:border-brand-400 transition">
+                    <h3 class="text-xl font-bold text-page-800 mb-3 flex items-start">
+                        <i class="fas fa-microphone text-brand-500 mr-3 mt-1"></i>
+                        How accurate is the voice recognition?
+                    </h3>
+                    <p class="text-page-600 ml-8">
+                        Our voice recognition system is powered by the Web Speech API and has been trained to understand mathematical terminology with 95%+ accuracy. It recognizes terms like "cosine", "integral", "derivative", and complex number expressions.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:border-brand-400 transition">
+                    <h3 class="text-xl font-bold text-page-800 mb-3 flex items-start">
+                        <i class="fas fa-shield-alt text-brand-500 mr-3 mt-1"></i>
+                        Is my calculation history secure?
+                    </h3>
+                    <p class="text-page-600 ml-8">
+                        Absolutely! All data is encrypted using industry-standard protocols. Your calculations are stored securely in a MySQL database with password-protected authentication via Werkzeug hashing.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:border-brand-400 transition">
+                    <h3 class="text-xl font-bold text-page-800 mb-3 flex items-start">
+                        <i class="fas fa-mobile-alt text-brand-500 mr-3 mt-1"></i>
+                        Can I use CalcAI on my phone?
+                    </h3>
+                    <p class="text-page-600 ml-8">
+                        Yes! CalcAI is fully responsive and works seamlessly on smartphones, tablets, and desktop computers. The voice recognition feature works on mobile Chrome and Safari browsers.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:border-brand-400 transition">
+                    <h3 class="text-xl font-bold text-page-800 mb-3 flex items-start">
+                        <i class="fas fa-dollar-sign text-brand-500 mr-3 mt-1"></i>
+                        Is CalcAI free to use?
+                    </h3>
+                    <p class="text-page-600 ml-8">
+                        Yes! CalcAI is completely free for students and educators. We believe advanced mathematical tools should be accessible to everyone. Premium features for teams and enterprises are coming soon.
+                    </p>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:border-brand-400 transition">
+                    <h3 class="text-xl font-bold text-page-800 mb-3 flex items-start">
+                        <i class="fas fa-language text-brand-500 mr-3 mt-1"></i>
+                        What languages are supported?
+                    </h3>
+                    <p class="text-page-600 ml-8">
+                        Currently, CalcAI supports English voice commands. We're actively working on adding support for Spanish, French, German, and Hindi in the coming months.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                Ready to Transform Your Math Experience?
+            </h2>
+            <p class="text-xl text-white text-opacity-90 mb-10 leading-relaxed">
+                Join thousands of students who are already experiencing the future of mathematical computation
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="/register" class="bg-white hover:bg-gray-50 text-brand-600 px-10 py-5 rounded-full text-lg font-bold transition shadow-2xl transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fas fa-rocket mr-2"></i> Start Free Today
+                </a>
+                <a href="#features" class="bg-transparent hover:bg-white hover:bg-opacity-20 text-white px-10 py-5 rounded-full text-lg font-bold border-2 border-white transition transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fas fa-info-circle mr-2"></i> Learn More
+                </a>
+            </div>
+            <p class="mt-8 text-white text-opacity-75 text-sm">
+                <i class="fas fa-check-circle mr-2"></i> No credit card required • 
+                <i class="fas fa-check-circle mx-2"></i> Free forever • 
+                <i class="fas fa-check-circle mx-2"></i> Cancel anytime
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+{% include 'footer.html' %}
+
+    <!-- Mobile Menu & Scroll Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        
+        // Mobile menu toggle
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

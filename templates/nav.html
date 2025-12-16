@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        page: {
+                            50: '#ffffff',  
+                            100: '#f0fdf4', 
+                            800: '#1f2937', 
+                            600: '#4b5563', 
+                        },
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669', 
+                            700: '#047857',
+                            900: '#064e3b', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <div class="bg-brand-500 text-white p-2 rounded-lg mr-3">
+                            <i class="fas fa-wave-square text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-brand-900 tracking-tight">CalcAI</span>
+                    </a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6">
+                    
+                    <a href="/" class="flex items-center hover:text-brand-600 font-medium transition py-2">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+
+                    <div class="relative group">
+                        <button class="flex items-center hover:text-brand-600 font-medium transition py-2">
+                            <i class="fas fa-compass mr-2"></i>
+                            Explore
+                            <i class="fas fa-chevron-down ml-2 text-xs transform group-hover:rotate-180 transition-transform duration-200"></i>
+                        </button>
+                        
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="py-2">
+                                <a href="/#features" class="flex items-center px-4 py-3 hover:bg-brand-50 transition group/item">
+                                    <i class="fas fa-star text-brand-500 mr-3 w-5"></i>
+                                    <div>
+                                        <div class="font-medium text-page-800 group-hover/item:text-brand-600">Features</div>
+                                        <div class="text-xs text-page-600">Explore capabilities</div>
+                                    </div>
+                                </a>
+                                <a href="/#technology" class="flex items-center px-4 py-3 hover:bg-brand-50 transition group/item">
+                                    <i class="fas fa-code text-brand-500 mr-3 w-5"></i>
+                                    <div>
+                                        <div class="font-medium text-page-800 group-hover/item:text-brand-600">Technology</div>
+                                        <div class="text-xs text-page-600">Tech stack info</div>
+                                    </div>
+                                </a>
+                                <a href="/#how-it-works" class="flex items-center px-4 py-3 hover:bg-brand-50 transition group/item">
+                                    <i class="fas fa-cogs text-brand-500 mr-3 w-5"></i>
+                                    <div>
+                                        <div class="font-medium text-page-800 group-hover/item:text-brand-600">How It Works</div>
+                                        <div class="text-xs text-page-600">Step by step guide</div>
+                                    </div>
+                                </a>
+                                <a href="/#accessibility" class="flex items-center px-4 py-3 hover:bg-brand-50 transition group/item">
+                                    <i class="fas fa-universal-access text-brand-500 mr-3 w-5"></i>
+                                    <div>
+                                        <div class="font-medium text-page-800 group-hover/item:text-brand-600">Accessibility</div>
+                                        <div class="text-xs text-page-600">Inclusive design</div>
+                                    </div>
+                                </a>
+                                <a href="/#testimonials" class="flex items-center px-4 py-3 hover:bg-brand-50 transition group/item rounded-b-xl">
+                                    <i class="fas fa-quote-left text-brand-500 mr-3 w-5"></i>
+                                    <div>
+                                        <div class="font-medium text-page-800 group-hover/item:text-brand-600">Testimonials</div>
+                                        <div class="text-xs text-page-600">User reviews</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/calculator" class="flex items-center hover:text-brand-600 font-medium transition py-2">
+                        <i class="fas fa-calculator mr-2"></i> Calculator
+                    </a>
+                    
+                    <a href="/history" class="flex items-center hover:text-brand-600 font-medium transition py-2">
+                        <i class="fas fa-history mr-2"></i> History
+                    </a>
+                    
+                    {% if session.get('user_id') %}
+                    <div class="flex items-center space-x-4 pl-4 border-l border-gray-200">
+                        <span class="text-brand-900 font-semibold">
+                            <i class="fas fa-user-circle mr-1"></i>{{ session.get('username') }}
+                        </span>
+                        <a href="/logout" class="text-red-500 hover:text-red-700 transition" title="Logout">
+                            <i class="fas fa-sign-out-alt text-xl"></i>
+                        </a>
+                    </div>
+                    {% else %}
+                    <a href="/login" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2 rounded-full font-medium shadow-lg shadow-brand-500/20 transition transform hover:scale-105">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Login
+                    </a>
+                    {% endif %}
+                </div>
+                
+                <button id="mobile-menu-btn" class="lg:hidden text-page-800 text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-1">
+                
+                <a href="/" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                    <i class="fas fa-home text-brand-500 mr-3 w-5"></i>
+                    <span class="text-page-800 font-medium">Home</span>
+                </a>
+
+                <div class="pb-2 pt-2">
+                    <div class="text-xs font-bold text-page-600 uppercase tracking-wider mb-2 px-3">
+                        <i class="fas fa-compass mr-2"></i>Explore
+                    </div>
+                    <a href="/#features" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-star text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800">Features</span>
+                    </a>
+                    <a href="/#technology" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-code text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800">Technology</span>
+                    </a>
+                    <a href="/#how-it-works" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-cogs text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800">How It Works</span>
+                    </a>
+                    <a href="/#accessibility" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-universal-access text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800">Accessibility</span>
+                    </a>
+                    <a href="/#testimonials" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-quote-left text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800">Testimonials</span>
+                    </a>
+                </div>
+
+                <div class="border-t border-gray-100 pt-3 pb-2">
+                    <div class="text-xs font-bold text-page-600 uppercase tracking-wider mb-2 px-3">
+                        <i class="fas fa-tools mr-2"></i>Tools
+                    </div>
+                    <a href="/calculator" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-calculator text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800 font-medium">Calculator</span>
+                    </a>
+                    <a href="/history" class="flex items-center px-3 py-2 hover:bg-brand-50 rounded-lg transition">
+                        <i class="fas fa-history text-brand-500 mr-3 w-5"></i>
+                        <span class="text-page-800 font-medium">History</span>
+                    </a>
+                </div>
+                
+                {% if session.get('user_id') %}
+                <div class="border-t border-gray-100 pt-3">
+                    <div class="flex items-center justify-between px-3 py-2 bg-brand-50 rounded-lg mb-2">
+                        <span class="text-brand-900 font-semibold">
+                            <i class="fas fa-user-circle mr-2"></i>{{ session.get('username') }}
+                        </span>
+                        <a href="/logout" class="text-red-500 hover:text-red-700 transition">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="border-t border-gray-100 pt-3">
+                    <a href="/login" class="flex items-center justify-center bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 rounded-lg font-bold transition">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Login
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
