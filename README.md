@@ -87,5 +87,131 @@ This project fills gaps in existing tools by offering **AI-driven, user-specific
 **Example commands:**
 
 
+"Factor the polynomial x³ – 3x² – 4x + 12."
+
+"Simplify (2x² – 8)/(x – 2)."
+
+"Solve √(x + 5) = x – 1."
+
+"Evaluate the piecewise function at x = 3."
+
+### Trigonometry
+
+**Example commands:**
+
+"Find sin(45°), cos(60°), tan(30°)."
+
+"Solve sin(x) = 1/2 for 0 ≤ x ≤ 2π."
+
+"Simplify sin²(x) + cos²(x)."
+
+"Find sinh(2) and cosh(3)."
+
+### Calculus – Differentiation
+
+**Example commands:**
+
+"Differentiate f(x) = x² ln(x)."
+
+"Find dy/dx for y = sin(x²)."
+
+"Find the partial derivative ∂/∂x (x²y + e^{xy})."
+
+"Find d²y/dx² of y = e^x cos(x)."
+
+### Calculus – Integration
+
+**Example commands:**
+
+"Integrate ∫ (3x² – 4x + 1) dx."
+
+"Evaluate ∫ x e^x dx using integration by parts."
+
+"Solve the definite integral ∫₀² (x³) dx."
+
+"Find the double integral ∬ (x + y) dA over 0 ≤ x,y ≤ 1."
+
+### Series & Sequences
+
+**Example commands:**
+
+"Find the 20th term of the sequence 5, 9, 13…."
+
+"Determine if the series Σ 1/n² converges."
+
+"Find the Taylor series of e^x about x = 0."
+
+"Find the Fourier series of f(x) = x on (−π, π)."
+
+### Matrix & Vector Problems
+
+**Example commands:**
+
+"Find the determinant of [[2, 3], [4, 5]]."
+
+"Compute the inverse of matrix A = [[1,2],[3,4]]."
+
+"Find the eigenvalues of [[3, 1], [0, 2]]."
+
+"Calculate the dot and cross product of (2,3,4) and (1,0,−5)."
+
+### Complex Numbers
+
+**Example commands:**
+
+"Find the modulus and argument of 3 + 4i."
+
+"Convert 5(cos 60° + i sin 60°) to rectangular form."
+
+"Simplify (2 + 3i)(4 – i)."
+
+"Write e^{iπ/3} in complex form."
+
+### Probability & Statistics
+
+**Example commands:**
+
+"Find mean and variance of 2, 5, 9, 3, 7."
+
+"Compute the probability of 3 heads in 5 coin tosses."
+
+"Perform a t-test between two samples."
+
+"Find the CDF of a normal distribution at x = 1.5."
+
+### Transforms
+
+**Example commands:**
+
+"Find the Fourier transform of f(t) = e^{−t}u(t)."
+
+"Compute the Laplace transform of sin(3t)."
+
+"Find the inverse Laplace transform of 1/(s² + 9)."
+
+"Find the Z-transform of x[n] = 3ⁿ."
+
+### Geometry
+
+**Example commands:**
+
 "Find the distance between points (3,4) and (7,1)."
+
+"Calculate the area of a triangle with sides 5, 6, 7."
+
+"Find the equation of a circle with center (2,−1) and radius 5."
+
+"Find the volume of a sphere with radius 6."
+
+### Special Functions
+
+**Example commands:**
+
+"Evaluate the Gamma function Γ(5)."
+
+"Compute the Beta function B(3,4)."
+
+"Find the value of the Bessel function J₀(1)."
+
+"Compute ∫ H(t−2) dt from 0 to 5."
 
