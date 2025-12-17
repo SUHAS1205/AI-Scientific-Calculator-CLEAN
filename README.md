@@ -63,7 +63,7 @@ This project fills gaps in existing tools by offering **AI-driven, user-specific
 "What is floor(7.9) and ceil(7.1)?"
 
 
-###Exponential & Logarithmic
+### Exponential & Logarithmic
 
 
 **Example commands**
@@ -81,7 +81,7 @@ This project fills gaps in existing tools by offering **AI-driven, user-specific
 "Solve log₂(x) + log₂(8) = 5."
 
 
-###Algebraic Expressions
+### Algebraic Expressions
 
 
 **Example commands:**
