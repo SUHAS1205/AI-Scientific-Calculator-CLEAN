@@ -51,3 +51,41 @@ This project fills gaps in existing tools by offering **AI-driven, user-specific
 
 **Example Commands**
 
+"Solve 72 ÷ 6 × 5."
+
+
+"Find 45 mod 7."
+
+
+"Round 12.678 to 2 decimal places."
+
+
+"What is floor(7.9) and ceil(7.1)?"
+
+
+###Exponential & Logarithmic
+
+
+**Example commands**
+
+
+"Calculate 5^7."
+
+
+"Solve for x: 3^x = 81."
+
+
+"Find ln(32) and log₁₀(450)."
+
+
+"Solve log₂(x) + log₂(8) = 5."
+
+
+###Algebraic Expressions
+
+
+**Example commands:**
+
+
+"Find the distance between points (3,4) and (7,1)."
+
