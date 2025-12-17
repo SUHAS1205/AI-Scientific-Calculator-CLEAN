@@ -1,0 +1,53 @@
+# AI Scientific Calculator
+
+---
+
+## Project Overview
+
+AI Scientific Calculator is a web-based tool that leverages AI to interpret natural language math queries via **text or voice**, performing advanced computations such as **calculus, algebra, matrices, and statistics** using OpenAI’s GPT-4o-mini.
+
+---
+
+## Key Features
+
+- Natural language and voice input support  
+  *(e.g., “Integrate sin(x) from 0 to 4”)* using Web Speech API for hands-free usage.
+
+- Secure user authentication  
+  Login and registration with personalized history tracking stored in a MySQL database.
+
+- Real-time intelligent results  
+  Text-to-speech output with higher flexibility and accuracy than traditional calculators.
+
+---
+
+## Tech Stack
+
+### Frontend
+- HTML5  
+- Tailwind CSS  
+- JavaScript (Fetch API, SpeechSynthesis)
+
+### Backend
+- Flask (Python)  
+- Session management  
+- Werkzeug security
+
+### Core
+- OpenAI GPT-4o-mini (AI math engine)  
+- MySQL (data persistence)
+
+---
+
+## Project Impact
+
+This project fills gaps in existing tools by offering **AI-driven, user-specific mathematical computation** for engineering students and researchers.
+
+---
+
+## Supported Commands
+
+### Basic Arithmetic
+
+**Example Commands**
+
